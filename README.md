@@ -74,17 +74,17 @@ listen 0.0.0.0:8080
         Options FollowSymLinks  Indexes
         AllowOverride None
 
-		    AuthName "Login Kennung"
-		    AuthType Basic
-		    AuthBasicProvider ldap-ad1 ldap-1	
-		    <RequireAny>
-				    Require ldap-group-edv
-				    Require ldap-group-bibl
-		    </RequireAny>
-		    <RequireAll>
-				    Require valid-user
-				    Require ip 147.142.106. 127.0.0.1
-		    </RequireAll>
+ 	AuthName "Login Kennung"
+	AuthType Basic
+	AuthBasicProvider ldap-ad1 ldap-1	
+	<RequireAny>
+		Require ldap-group-edv
+		Require ldap-group-bibl
+	</RequireAny>
+	<RequireAll>
+		Require valid-user
+		Require ip 147.142.106. 127.0.0.1
+	</RequireAll>
 		
     </Directory>
 
