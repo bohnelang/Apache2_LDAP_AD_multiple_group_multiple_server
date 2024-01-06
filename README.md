@@ -3,28 +3,28 @@
 
 ```
 
-# Setting:
-
-#   +----------------------+ 
-#   |                      | AD-Controller ldap-1
-#   | User: al1, gh7       |
-#   |                      |
-#   +----------------------+
-#      #
-#      #
-#   +-----------------------------------+ 
-#   |                                   | Ad-Controller ldap-ad1
-#   | User: WK789, ZU567                |
-#   |                                   |
-#   | Group Bibl: WK789, ZU567, al1     |
-#   | Group EDV : ZU567, gh7,   al1     |     
-#   |                                   |
-#   +-----------------------------------+
-#
-
+ Setting:
+   +----------------------+ 
+   |                      | AD-Controller ldap-1
+   | User: al1, gh7       |
+   |                      |
+   +----------------------+
+      #
+      # trust
+      #
+   +-----------------------------------+ 
+   |                                   | Ad-Controller ldap-ad1
+   | User: WK789, ZU567                |
+   |                                   |
+   | Group Bibl: WK789, ZU567, al1     |
+   | Group EDV : ZU567, gh7,   al1     |     
+   |                                   |
+   +-----------------------------------+
 
 
 
+
+# Login Provider
 <AuthnProviderAlias ldap ldap-1>
         AuthLDAPBindDN "myadlogin"
         AuthLDAPBindPassword s3cr3t
@@ -37,7 +37,7 @@
         AuthLDAPURL "ldap://ads3.sub.mycompany.test/OU=Benutzer,DC=sub,DC=mycompany,DC=test?sAMAccountName"
 </AuthnProviderAlias>
 
-
+# Group Provider
 <AuthzProviderAlias ldap-group ldap-group-bibl "CN=Bibl,OU=Gruppen,DC=sub,DC=mycompany,DC=test">
         AuthLDAPBindDN "adservice@ad1.mycompany.test"
         AuthLDAPBindPassword super_secret
